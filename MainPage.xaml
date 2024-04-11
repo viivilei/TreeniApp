@@ -15,6 +15,7 @@
                    SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
             <Button x:Name="Lisatieto" Text="Lisätietoa" Clicked="Lisatieto_Clicked" HorizontalOptions="Fill" />
+            <Button x:Name="Navigointi" Text="Siirry" Clicked="Navigointi_Clicked" HorizontalOptions="Fill" />
 
             <ListView x:Name="userList" SelectionMode="Single" Margin="20, 0">
                 <ListView.ItemTemplate>

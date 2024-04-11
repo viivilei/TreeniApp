@@ -45,9 +45,14 @@ namespace TreeniApp
 
 
 
-        private void Lisatieto_Clicked(object sender, EventArgs e)
+        private async void Lisatieto_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Moi ", "Hei", "Okei");
+            await Shell.Current.GoToAsync("Lisatieto");
+        }
+
+        private async void Navigointi_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("Goals");
         }
     }
 

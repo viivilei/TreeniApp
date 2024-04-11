@@ -6,10 +6,16 @@
     xmlns:local="clr-namespace:TreeniApp"
     Shell.FlyoutBehavior="Disabled"
     Title="TreeniApp">
-
-    <ShellContent
+    
+        <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+    <ShellContent
+     Title="Goals"
+     ContentTemplate="{DataTemplate local:GoalsPage}"
+     Route="GoalsPage" />
+   
 
 </Shell>
