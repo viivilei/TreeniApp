@@ -9,6 +9,12 @@
             Routing.RegisterRoute("Goals", typeof(GoalsPage));
             //reitti lisätietoihin
             Routing.RegisterRoute("Lisatieto", typeof(LisatietoPage));
+            //reitti lisäys sivulle
+            Routing.RegisterRoute("AddGoal", typeof(NewGoalPage));
+
+
+
+
         }
     }
 }

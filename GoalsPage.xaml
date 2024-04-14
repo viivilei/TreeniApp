@@ -5,8 +5,32 @@
              Title="GoalsPage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to Goals page!"
+            Text="Welcome to Goals page! Täällä näkyy tällä hetkellä kaikki tavoitteet, mutta tarkoitus on rajata tätä siten, 
+            että vain valitsemasi käyttäjän tavoitteet tulevat täällä näkyville. Toistaiseksi en ole onnistunut tässä"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+
+        <Button Text="Lisää uusi tavoite" Clicked="AddButton_Clicked" Margin="0,20,0,0" />
+
+
+
+        <ListView x:Name="goalsList" SelectionMode="Single" Margin="20, 0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding UserId, StringFormat='Käyttäjän ID: {0} - '}" FontSize="22" VerticalOptions="StartAndExpand" />
+                            <Label Text="{Binding GoalDescription}" FontSize="22" VerticalOptions="StartAndExpand" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+            
+        </ListView>
+
+        
+      
     </VerticalStackLayout>
 </ContentPage>

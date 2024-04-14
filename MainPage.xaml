@@ -9,7 +9,7 @@
                    Style="{StaticResource Headline}"
                    SemanticProperties.HeadingLevel="Level1" />
 
-            <Label Text="App, jonka avulla treenitavoitteiden saavuttaminen on mahdollista"
+            <Label Text="Tässä jotain liibalaaba selitystä"
                    Style="{StaticResource SubHeadline}"
                    SemanticProperties.HeadingLevel="Level2"
                    SemanticProperties.Description="Welcome to dot net Multi platform App U I" />

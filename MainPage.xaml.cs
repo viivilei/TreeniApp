@@ -18,6 +18,8 @@ namespace TreeniApp
             LoadDataFromRestAPI();
         }
 
+
+        //Datan hakeminen BackEndistä (azuressa)
         async void LoadDataFromRestAPI()
         {
             try
@@ -38,13 +40,6 @@ namespace TreeniApp
         }
 
 
-
-
-
-
-
-
-
         private async void Lisatieto_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("Lisatieto");
@@ -52,7 +47,26 @@ namespace TreeniApp
 
         private async void Navigointi_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("Goals");
+
+            User us = (User)userList.SelectedItem;
+
+            if (us == null)
+            {
+                await DisplayAlert("Valinta puuttuu", "Valitse käyttäjä.", "OK");
+                return;
+            }
+            else
+            {
+                // Näytä alert, joka näyttää valitun käyttäjän ID:n
+                await DisplayAlert("Valittu käyttäjä", $"Valittu käyttäjä ID: {us.UserId}", "OK");
+
+                await Shell.Current.GoToAsync("Goals");
+                // Siirry GoalsPage-sivulle valitun käyttäjän ID:n kanssa
+                //await Shell.Current.GoToAsync($"GoalsPage?userId={us.UserId}");
+
+            }
+
+
         }
     }
 

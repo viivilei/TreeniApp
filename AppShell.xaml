@@ -16,6 +16,11 @@
      Title="Goals"
      ContentTemplate="{DataTemplate local:GoalsPage}"
      Route="GoalsPage" />
-   
+
+    
+
+
+
+
 
 </Shell>
