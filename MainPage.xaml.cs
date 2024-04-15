@@ -25,7 +25,7 @@ namespace TreeniApp
             try
             {
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://treeniappbackend.azurewebsites.net");
+                client.BaseAddress = new Uri("https://treenidbbackend20240415080224.azurewebsites.net/");
 
                 string json = await client.GetStringAsync("/api/users");
                 var users = JsonConvert.DeserializeObject<User[]>(json);

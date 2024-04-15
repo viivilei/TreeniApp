@@ -21,7 +21,7 @@
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="{Binding UserId, StringFormat='Käyttäjän ID: {0} - '}" FontSize="22" VerticalOptions="StartAndExpand" />
-                            <Label Text="{Binding GoalDescription}" FontSize="22" VerticalOptions="StartAndExpand" />
+                            <Label Text="{Binding GoalName}" FontSize="22" VerticalOptions="StartAndExpand" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -10,14 +10,22 @@ namespace TreeniApp.Models
     public class User
     {
 
-       
-      
 
-            public int UserId { get; set; }
-            public string Username { get; set; } 
-        public DateTime CreatedAt { get; set; }
 
-           
-       
+        public User()
+        {
+            
+            Goals = new HashSet<Goal>();
+        }
+
+        public int UserId { get; set; }
+        public string? Etunimi { get; set; }
+        public string? Sukunimi { get; set; }
+        public string? Sahkoposti { get; set; }
+
+        //public virtual ICollection<Exercise> Exercises { get; set; }
+        public virtual ICollection<Goal> Goals { get; set; }
     }
+
 }
+

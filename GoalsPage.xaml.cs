@@ -23,7 +23,7 @@ using TreeniApp.Models;
             try
             {
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://treeniappbackend.azurewebsites.net/");
+                client.BaseAddress = new Uri("https://treenidbbackend20240415080224.azurewebsites.net/");
                 string json = await client.GetStringAsync("/api/goals");
                 IEnumerable<Goal> goals = JsonConvert.DeserializeObject<IEnumerable<Goal>>(json);
                 goalsList.ItemsSource = new ObservableCollection<Goal>(goals);
