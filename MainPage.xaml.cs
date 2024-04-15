@@ -1,14 +1,16 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using TreeniApp.Models;
 using Newtonsoft;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 
 namespace TreeniApp
 {
     public partial class MainPage : ContentPage
     {
-        
+
         // Muuttujan alustaminen
         ObservableCollection<User> dataa = new ObservableCollection<User>();
 
@@ -57,17 +59,26 @@ namespace TreeniApp
             }
             else
             {
-                // Näytä alert, joka näyttää valitun käyttäjän ID:n
-                await DisplayAlert("Valittu käyttäjä", $"Valittu käyttäjä ID: {us.UserId}", "OK");
+                try
+                {
+                    // Näytä alert, joka näyttää valitun käyttäjän ID:n
+                    await DisplayAlert("Valittu käyttäjä", $"Valittu käyttäjä ID: {us.UserId}", "OK");
 
-                await Shell.Current.GoToAsync("Goals");
+                    await Shell.Current.GoToAsync($"///GoalsPage?userId={us.UserId}");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Virhe", ex.Message.ToString(), "Ok");
+                }
+
+                //await Shell.Current.GoToAsync("Goals");
                 // Siirry GoalsPage-sivulle valitun käyttäjän ID:n kanssa
-                //await Shell.Current.GoToAsync($"GoalsPage?userId={us.UserId}");
+
+
+
 
             }
-
-
         }
-    }
 
+    }
 }

@@ -22,7 +22,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Etunimi}" FontSize="22" VerticalOptions="StartAndExpand" />
+                                <Label Text="{Binding Etunimi }" FontSize="22" VerticalOptions="StartAndExpand" />
+                                <Label Text="{Binding Sukunimi}" FontSize="22" VerticalOptions="StartAndExpand" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

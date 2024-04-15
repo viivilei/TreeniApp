@@ -8,25 +8,57 @@ using Newtonsoft.Json;
 using TreeniApp.Models;
 
 
-    namespace TreeniApp
+
+namespace TreeniApp
     {
     public partial class GoalsPage : ContentPage
     {
-        public GoalsPage()
+        private int userId;
+
+        public GoalsPage(int id)
         {
             InitializeComponent();
+            userId = id;
             LoadAllGoalsFromRestAPI();
         }
 
+        // Oletuskonstruktori ilman parametreja
+        public GoalsPage()
+        {
+            InitializeComponent();
+            
+            LoadAllGoalsFromRestAPI();
+
+        }
+
+        //protected override void OnNavigatedTo(INavigationParameters parameters)
+        //{
+        //    base.OnNavigatedTo(parameters);
+
+        //    if (parameters.TryGetValue("userId", out int userId))
+        //    {
+        //        // K‰sittele userId t‰‰ll‰ tarvittaessa
+        //    }
+        //}
+
         async void LoadAllGoalsFromRestAPI()
         {
+
+            await DisplayAlert("Moi", $"P‰‰sit t‰nne asti. K‰ytt‰j‰ ID: {userId}", "Ok");
             try
             {
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("https://treenidbbackend20240415080224.azurewebsites.net/");
-                string json = await client.GetStringAsync("/api/goals");
+                client.BaseAddress = new Uri("https://treenidbbackend20240415080224.azurewebsites.net");
+                string json = await client.GetStringAsync($"/api/goals/{userId}");
+
+                await DisplayAlert("JSON Response", json, "OK");
+
                 IEnumerable<Goal> goals = JsonConvert.DeserializeObject<IEnumerable<Goal>>(json);
                 goalsList.ItemsSource = new ObservableCollection<Goal>(goals);
+
+
+                // P‰ivit‰ goalsList kutsuvalla OnPropertyChanged-metodia
+                //OnPropertyChanged(nameof(goalsList));
             }
             catch (Exception e)
             {

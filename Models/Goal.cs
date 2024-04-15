@@ -15,8 +15,8 @@ namespace TreeniApp.Models
        
 
         public int GoalId { get; set; }
-        public int? UserId { get; set; }
-        public string? GoalName { get; set; }
+        public int UserId { get; set; }
+        public string GoalName { get; set; }
         public string? Notes { get; set; }
         public bool Reached { get; set; }
 
